@@ -10,8 +10,9 @@ public class ConsumoApi {
 
     public String obterDados(String endereco) {
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endereco))
+        HttpRequest.Builder builder = HttpRequest.newBuilder();
+        builder.uri(URI.create(endereco));
+        HttpRequest request = builder
                 .build();
         HttpResponse<String> response = null;
         try {
